@@ -1,0 +1,24 @@
+@import './reset'
+@import './common'
+@import './components/PostElem/PostElem'
+@import './components/CommentElem/CommentElem'
+
+
+
+#cover
+    height: 100vh
+    width: 100vw
+    background: radial-gradient(circle, #475f7c, #0b1626)
+    color: #d6d3d3
+    font-family: Arial, sans-serif
+    justify-content: flex-start
+    flex-direction: row
+    section
+        width: 50%
+        overflow-y: scroll
+        height: 100%
+        padding: 0 3rem
+        scroll-behavior: smooth
+        scroll-snap-type: y mandatory
+        -ms-overflow-style: none
+        scrollbar-width: none
