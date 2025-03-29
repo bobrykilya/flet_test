@@ -1,3 +1,3 @@
 To start project: 
-yarn
+yarn,
 yarn start
