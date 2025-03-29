@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 
 
-const PostElem = ({ elemInfo, users, setSelectedPost, selectedPost }) => {
+const PostElem = memo(({ elemInfo, users, setSelectedPost, isPostSelected }) => {
 
 
 	return (
@@ -24,7 +24,7 @@ const PostElem = ({ elemInfo, users, setSelectedPost, selectedPost }) => {
 					{users.find((user) => user.id === elemInfo.userId).name}
 				</div>
 				{
-					selectedPost === elemInfo.id ?
+					isPostSelected ?
 					<button
 						className={'selected'}
 						onClick={() => setSelectedPost(null)}
@@ -41,6 +41,6 @@ const PostElem = ({ elemInfo, users, setSelectedPost, selectedPost }) => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default PostElem

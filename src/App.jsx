@@ -10,13 +10,14 @@ const App = () => {
 
 	const [data, setData] = useState({})
 	const [selectedPost, setSelectedPost] = useState(null)
+	const dataLimit = 100
 
 
 	useEffect(() => {
 		const getData = async () => {
-			const posts = await getDataAPI('posts')
-			const users = await getDataAPI('users')
-			const comments = await getDataAPI('comments')
+			const posts = await getDataAPI('posts', dataLimit)
+			const users = await getDataAPI('users', dataLimit)
+			const comments = await getDataAPI('comments', dataLimit)
 
 			return {
 				posts,
@@ -25,7 +26,10 @@ const App = () => {
 			}
 		}
 
-		getData().then(data => setData(data))
+		getData()
+			.then((data) => {
+				setData(data)
+			})
 	}, [])
 
 
@@ -44,7 +48,7 @@ const App = () => {
 							elemInfo={el}
 							users={data.users}
 							setSelectedPost={setSelectedPost}
-							selectedPost={selectedPost}
+							isPostSelected={selectedPost === el.id}
 						/>
 			        )
 		        }
